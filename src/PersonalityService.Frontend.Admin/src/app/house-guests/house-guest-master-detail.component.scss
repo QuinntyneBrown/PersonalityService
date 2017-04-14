@@ -1,0 +1,20 @@
+@import "../../styles/base/_all";
+
+ce-house-guest-master-detail {
+    display:block;
+	@extend .view-card;
+
+    ce-house-guest-edit-embed,
+    ce-house-guest-list-embed {
+        float:left;
+        display:inline-block;
+        position:relative;
+        width:50%;
+    }
+}
+
+ce-house-guest-master-detail::after {
+    clear:both;
+    display:block;
+    content:" ";
+}
