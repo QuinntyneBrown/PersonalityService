@@ -25,7 +25,7 @@ namespace PersonalityService.Data.Model
 
         public string Abstract { get; set; }
 
-        public string Description { get; set; }
+        public string Bio { get; set; }
 
         public DateTime CreatedOn { get; set; }
         

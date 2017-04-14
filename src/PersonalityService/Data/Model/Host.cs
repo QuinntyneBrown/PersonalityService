@@ -6,5 +6,6 @@ namespace PersonalityService.Data.Model
     public class Host: Personality
     {
         public string TvShowName { get; set; }
+        public string TvShowUrl { get; set; }
     }
 }

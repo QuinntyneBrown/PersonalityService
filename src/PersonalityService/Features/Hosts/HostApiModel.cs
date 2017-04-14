@@ -1,20 +1,23 @@
 using PersonalityService.Data.Model;
+using PersonalityService.Features.Personalities;
 
 namespace PersonalityService.Features.Hosts
 {
-    public class HostApiModel
-    {        
-        public int Id { get; set; }
-        public int? TenantId { get; set; }
-        public string Name { get; set; }
+    public class HostApiModel: PersonalityApiModel
+    {
+        public string TvShowName { get; set; }
+
+        public string TvShowUrl { get; set; }
 
         public static TModel FromHost<TModel>(Host host) where
             TModel : HostApiModel, new()
         {
-            var model = new TModel();
-            model.Id = host.Id;
-            model.TenantId = host.TenantId;
-            model.Name = host.Name;
+            var model = PersonalityApiModel.FromPersonality(host) as TModel;
+
+            model.TvShowName = host.TvShowName;
+
+            model.TvShowUrl = host.TvShowUrl;
+
             return model;
         }
 
