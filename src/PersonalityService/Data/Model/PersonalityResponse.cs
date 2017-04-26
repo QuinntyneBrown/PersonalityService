@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using PersonalityService.Data.Helpers;
 using System.ComponentModel.DataAnnotations.Schema;
 
+using static PersonalityService.Constants;
+using System.ComponentModel.DataAnnotations;
+
 namespace PersonalityService.Data.Model
 {
     [SoftDelete("IsDeleted")]
@@ -14,8 +17,9 @@ namespace PersonalityService.Data.Model
         public int? TenantId { get; set; }
         
 		[Index("NameIndex", IsUnique = false)]
-        [Column(TypeName = "VARCHAR")]        
-		public string Name { get; set; }
+        [Column(TypeName = "VARCHAR")]
+        [StringLength(MaxStringLength)]
+        public string Name { get; set; }
         
 		public DateTime CreatedOn { get; set; }
         

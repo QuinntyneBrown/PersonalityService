@@ -313,22 +313,9 @@
     <Compile Include="Data\Model\HouseGuest.cs" />
     <Compile Include="Data\Model\PersonalityQuestion.cs" />
     <Compile Include="Data\Model\PersonalityResponse.cs" />
-    <Compile Include="Features\HouseGuests\AddOrUpdateHouseGuestCommand.cs" />
-    <Compile Include="Features\HouseGuests\GetHouseGuestsQuery.cs" />
-    <Compile Include="Features\HouseGuests\GetHouseGuestByIdQuery.cs" />
-    <Compile Include="Features\HouseGuests\RemoveHouseGuestCommand.cs" />
-    <Compile Include="Features\HouseGuests\HouseGuestApiModel.cs" />
-    <Compile Include="Features\HouseGuests\HouseGuestController.cs" />
     <Compile Include="Data\Model\Host.cs" />
-    <Compile Include="Features\Hosts\AddOrUpdateHostCommand.cs" />
-    <Compile Include="Features\Hosts\GetHostsQuery.cs" />
-    <Compile Include="Features\Hosts\GetHostByIdQuery.cs" />
-    <Compile Include="Features\Hosts\RemoveHostCommand.cs" />
-    <Compile Include="Features\Hosts\HostApiModel.cs" />
-    <Compile Include="Features\Hosts\HostController.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Features\Hosts\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>

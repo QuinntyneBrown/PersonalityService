@@ -10,6 +10,7 @@ export class PersonalityEditEmbedComponent extends HTMLElement {
         super();
         this.onSave = this.onSave.bind(this);
         this.onDelete = this.onDelete.bind(this);
+        this.onCreate = this.onCreate.bind(this);
     }
 
     static get observedAttributes() {
@@ -38,11 +39,13 @@ export class PersonalityEditEmbedComponent extends HTMLElement {
     private _setEventListeners() {
         this._saveButtonElement.addEventListener("click", this.onSave);
         this._deleteButtonElement.addEventListener("click", this.onDelete);
+        this._createButtonElement.addEventListener("click", this.onCreate);
     }
 
     private disconnectedCallback() {
         this._saveButtonElement.removeEventListener("click", this.onSave);
         this._deleteButtonElement.removeEventListener("click", this.onDelete);
+        this._createButtonElement.removeEventListener("click", this.onCreate);
     }
 
     public onSave() {
@@ -52,6 +55,10 @@ export class PersonalityEditEmbedComponent extends HTMLElement {
         } as Personality;
         
         this.dispatchEvent(new PersonalityAdd(personality));            
+    }
+
+    public onCreate() {        
+        this.dispatchEvent(new PersonalityEdit(new Personality()));            
     }
 
     public onDelete() {        
@@ -80,12 +87,18 @@ export class PersonalityEditEmbedComponent extends HTMLElement {
     }
 
     public personalityId: any;
-    public personality: Personality;
     
-    private get _titleElement(): HTMLElement { return this.querySelector("h2") as HTMLElement; }
-    private get _saveButtonElement(): HTMLElement { return this.querySelector(".save-button") as HTMLElement };
-    private get _deleteButtonElement(): HTMLElement { return this.querySelector(".delete-button") as HTMLElement };
-    private get _nameInputElement(): HTMLInputElement { return this.querySelector(".personality-name") as HTMLInputElement;}
+	public personality: Personality;
+    
+    private get _createButtonElement(): HTMLElement { return this.querySelector(".personality-create") as HTMLElement; }
+    
+	private get _titleElement(): HTMLElement { return this.querySelector("h2") as HTMLElement; }
+    
+	private get _saveButtonElement(): HTMLElement { return this.querySelector(".save-button") as HTMLElement };
+    
+	private get _deleteButtonElement(): HTMLElement { return this.querySelector(".delete-button") as HTMLElement };
+    
+	private get _nameInputElement(): HTMLInputElement { return this.querySelector(".personality-name") as HTMLInputElement;}
 }
 
 customElements.define(`ce-personality-edit-embed`,PersonalityEditEmbedComponent);

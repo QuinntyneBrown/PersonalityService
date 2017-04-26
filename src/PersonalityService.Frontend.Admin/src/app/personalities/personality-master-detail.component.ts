@@ -17,7 +17,7 @@ export class PersonalityMasterDetailComponent extends HTMLElement {
 
     static get observedAttributes () {
         return [
-            "personalitys"
+            "personalities"
         ];
     }
 
@@ -28,8 +28,8 @@ export class PersonalityMasterDetailComponent extends HTMLElement {
     }
 
     private async _bind() {
-        this.personalitys = await this._personalityService.get();
-        this.personalityListElement.setAttribute("personalitys", JSON.stringify(this.personalitys));
+        this.personalities = await this._personalityService.get();
+        this.personalityListElement.setAttribute("personalities", JSON.stringify(this.personalities));
     }
 
     private _setEventListeners() {
@@ -47,9 +47,9 @@ export class PersonalityMasterDetailComponent extends HTMLElement {
     public async onPersonalityAdd(e) {
 
         await this._personalityService.add(e.detail.personality);
-        this.personalitys = await this._personalityService.get();
+        this.personalities = await this._personalityService.get();
         
-        this.personalityListElement.setAttribute("personalitys", JSON.stringify(this.personalitys));
+        this.personalityListElement.setAttribute("personalities", JSON.stringify(this.personalities));
         this.personalityEditElement.setAttribute("personality", JSON.stringify(new Personality()));
     }
 
@@ -60,16 +60,16 @@ export class PersonalityMasterDetailComponent extends HTMLElement {
     public async onPersonalityDelete(e) {
 
         await this._personalityService.remove(e.detail.personality.id);
-        this.personalitys = await this._personalityService.get();
+        this.personalities = await this._personalityService.get();
         
-        this.personalityListElement.setAttribute("personalitys", JSON.stringify(this.personalitys));
+        this.personalityListElement.setAttribute("personalities", JSON.stringify(this.personalities));
         this.personalityEditElement.setAttribute("personality", JSON.stringify(new Personality()));
     }
 
     attributeChangedCallback (name, oldValue, newValue) {
         switch (name) {
-            case "personalitys":
-                this.personalitys = JSON.parse(newValue);
+            case "personalities":
+                this.personalities = JSON.parse(newValue);
 
                 if (this.parentNode)
                     this.connectedCallback();
@@ -78,12 +78,12 @@ export class PersonalityMasterDetailComponent extends HTMLElement {
         }
     }
 
-    public get value(): Array<Personality> { return this.personalitys; }
+    public get value(): Array<Personality> { return this.personalities; }
 
-    private personalitys: Array<Personality> = [];
+    private personalities: Array<Personality> = [];
     public personality: Personality = <Personality>{};
     public get personalityEditElement(): HTMLElement { return this.querySelector("ce-personality-edit-embed") as HTMLElement; }
-    public get personalityListElement(): HTMLElement { return this.querySelector("ce-personality-list-embed") as HTMLElement; }
+    public get personalityListElement(): HTMLElement { return this.querySelector("ce-personality-paginated-list-embed") as HTMLElement; }
 }
 
 customElements.define(`ce-personality-master-detail`,PersonalityMasterDetailComponent);

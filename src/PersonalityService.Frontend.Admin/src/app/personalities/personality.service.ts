@@ -1,5 +1,6 @@
 import { fetch } from "../utilities";
 import { Personality } from "./personality.model";
+import { environment } from "../environment";
 
 export class PersonalityService {
     constructor(private _fetch = fetch) { }
@@ -12,23 +13,23 @@ export class PersonalityService {
     }
 
     public get(): Promise<Array<Personality>> {
-        return this._fetch({ url: "/api/personality/get", authRequired: true }).then((results:string) => {
-            return (JSON.parse(results) as { personalitys: Array<Personality> }).personalitys;
+        return this._fetch({ url: `${environment.baseUrl}api/personality/get`, authRequired: true }).then((results:string) => {
+            return (JSON.parse(results) as { personalities: Array<Personality> }).personalities;
         });
     }
 
     public getById(id): Promise<Personality> {
-        return this._fetch({ url: `/api/personality/getbyid?id=${id}`, authRequired: true }).then((results:string) => {
+        return this._fetch({ url: `${environment.baseUrl}api/personality/getbyid?id=${id}`, authRequired: true }).then((results:string) => {
             return (JSON.parse(results) as { personality: Personality }).personality;
         });
     }
 
     public add(personality) {
-        return this._fetch({ url: `/api/personality/add`, method: "POST", data: { personality }, authRequired: true  });
+        return this._fetch({ url: `${environment.baseUrl}api/personality/add`, method: `POST`, data: { personality }, authRequired: true  });
     }
 
     public remove(options: { id : number }) {
-        return this._fetch({ url: `/api/personality/remove?id=${options.id}`, method: "DELETE", authRequired: true  });
+        return this._fetch({ url: `${environment.baseUrl}api/personality/remove?id=${options.id}`, method: `DELETE`, authRequired: true  });
     }
     
 }

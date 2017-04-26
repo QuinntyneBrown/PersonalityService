@@ -1,6 +1,6 @@
 ﻿export const environment = {
     production: true,
     applicationContextName: "PersonalityServiceApp",
-    baseUrl: "http://PersonalityService.azurewebsites.net",
+    baseUrl: "http://localhost:64411/",
     useUrlRouting: true
 };

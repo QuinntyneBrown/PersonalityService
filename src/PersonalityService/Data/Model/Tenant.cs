@@ -11,7 +11,7 @@ namespace PersonalityService.Data.Model
     {
         public int Id { get; set; }
 
-        [Index("UniqueIdIndex", IsUnique = true)]
+        [Index("TenantUniqueIdIndex", IsUnique = true)]
         [Column(TypeName = "UNIQUEIDENTIFIER")]
         public Guid UniqueId { get; set; } = Guid.NewGuid();
 

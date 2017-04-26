@@ -195,9 +195,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
-    <Content Include="azureBlobStorageConfiguration.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
     <Content Include="index.html" />
     <Content Include="lib\moment.min.js" />
     <Content Include="lib\native-shim.js" />
@@ -303,17 +300,17 @@
     <Content Include="src\app\personalities\personality-item-embed.component.scss">
       <DependentUpon>personality-item-embed.component.ts</DependentUpon>
     </Content>
-    <Content Include="src\app\personalities\personality-list-embed.component.html">
-      <DependentUpon>personality-list-embed.component.ts</DependentUpon>
-    </Content>
-    <Content Include="src\app\personalities\personality-list-embed.component.scss">
-      <DependentUpon>personality-list-embed.component.ts</DependentUpon>
-    </Content>
     <Content Include="src\app\personalities\personality-master-detail.component.html">
       <DependentUpon>personality-master-detail.component.ts</DependentUpon>
     </Content>
     <Content Include="src\app\personalities\personality-master-detail.component.scss">
       <DependentUpon>personality-master-detail.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\personalities\personality-paginated-list-embed.component.html">
+      <DependentUpon>personality-paginated-list-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\personalities\personality-paginated-list-embed.component.scss">
+      <DependentUpon>personality-paginated-list-embed.component.ts</DependentUpon>
     </Content>
     <Content Include="src\app\profiles\profile-edit-embed.component.html">
       <DependentUpon>profile-edit-embed.component.ts</DependentUpon>
@@ -612,14 +609,6 @@
     <TypeScriptCompile Include="src\app\profiles\index.ts" />
     <TypeScriptCompile Include="src\app\profiles\profile.model.ts" />
     <TypeScriptCompile Include="src\app\accounts\register-account.component.ts" />
-    <TypeScriptCompile Include="src\app\personalities\personality-edit-embed.component.ts" />
-    <TypeScriptCompile Include="src\app\personalities\personality-list-embed.component.ts" />
-    <TypeScriptCompile Include="src\app\personalities\personality-item-embed.component.ts" />
-    <TypeScriptCompile Include="src\app\personalities\personality-master-detail.component.ts" />
-    <TypeScriptCompile Include="src\app\personalities\personality.actions.ts" />
-    <TypeScriptCompile Include="src\app\personalities\personality.service.ts" />
-    <TypeScriptCompile Include="src\app\personalities\index.ts" />
-    <TypeScriptCompile Include="src\app\personalities\personality.model.ts" />
     <TypeScriptCompile Include="src\app\personality-questions\personality-question-edit-embed.component.ts" />
     <TypeScriptCompile Include="src\app\personality-questions\personality-question-list-embed.component.ts" />
     <TypeScriptCompile Include="src\app\personality-questions\personality-question-item-embed.component.ts" />
@@ -644,6 +633,14 @@
     <TypeScriptCompile Include="src\app\hosts\host.service.ts" />
     <TypeScriptCompile Include="src\app\hosts\index.ts" />
     <TypeScriptCompile Include="src\app\hosts\host.model.ts" />
+    <TypeScriptCompile Include="src\app\personalities\personality-edit-embed.component.ts" />
+    <TypeScriptCompile Include="src\app\personalities\personality-paginated-list-embed.component.ts" />
+    <TypeScriptCompile Include="src\app\personalities\personality-item-embed.component.ts" />
+    <TypeScriptCompile Include="src\app\personalities\personality-master-detail.component.ts" />
+    <TypeScriptCompile Include="src\app\personalities\personality.actions.ts" />
+    <TypeScriptCompile Include="src\app\personalities\personality.service.ts" />
+    <TypeScriptCompile Include="src\app\personalities\index.ts" />
+    <TypeScriptCompile Include="src\app\personalities\personality.model.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

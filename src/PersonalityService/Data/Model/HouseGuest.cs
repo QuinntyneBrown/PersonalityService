@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using PersonalityService.Data.Helpers;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PersonalityService.Data.Model
 {

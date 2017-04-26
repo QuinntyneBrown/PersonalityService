@@ -1,9 +1,10 @@
 using PersonalityService.Data.Helpers;
-using static PersonalityService.Constants;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+
+using static PersonalityService.Constants;
 
 namespace PersonalityService.Data.Model
 {
@@ -15,7 +16,7 @@ namespace PersonalityService.Data.Model
         [ForeignKey("Tenant")]
         public int? TenantId { get; set; }
 
-        [Index("NameIndex", IsUnique = true)]
+        [Index("RoleNameIndex", IsUnique = true)]
         [Column(TypeName = "VARCHAR")]
         [StringLength(MaxStringLength)]
         public string Name { get; set; }

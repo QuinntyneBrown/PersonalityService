@@ -5,11 +5,19 @@ ce-personality-master-detail {
 	@extend .view-card;
 
     ce-personality-edit-embed,
-    ce-personality-list-embed {
+    ce-personality-paginated-list-embed {
         float:left;
         display:inline-block;
         position:relative;
-        width:50%;
+        width:calc(50% - 10px);
+    }
+
+    ce-personality-edit-embed {
+        margin-right:10px;
+    }
+
+    ce-personality-paginated-list-embed {
+        margin-left:10px;
     }
 }
 
