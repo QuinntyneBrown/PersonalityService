@@ -16,7 +16,7 @@ namespace PersonalityService.Data.Model
 		[ForeignKey("Tenant")]
         public int? TenantId { get; set; }
         
-		[Index("NameIndex", IsUnique = false)]
+		[Index("PersonalityNameIndex", IsUnique = false)]
         [Column(TypeName = "VARCHAR")]
         [StringLength(MaxStringLength)]
         public string Name { get; set; }

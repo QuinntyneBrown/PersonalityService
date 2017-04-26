@@ -18,16 +18,30 @@ namespace PersonalityService.Features.Personalities
 
         public string Abstract { get; set; }
 
-        public string Description { get; set; }
+        public string Bio { get; set; }
 
 
         public static TModel FromPersonality<TModel>(Personality personality) where
             TModel : PersonalityApiModel, new()
         {
             var model = new TModel();
+
             model.Id = personality.Id;
+
             model.TenantId = personality.TenantId;
+
             model.Name = personality.Name;
+
+            model.Firstname = personality.Firstname;
+
+            model.Lastname = personality.Lastname;
+
+            model.Abstract = personality.Abstract;
+
+            model.Bio = personality.Bio;
+
+            model.ImageUrl = personality.ImageUrl;
+
             return model;
         }
 

@@ -7,6 +7,15 @@ ce-personality-edit-embed {
     .personality-create {
         cursor:pointer;
     }
+
+    .personality-bio,
+    .personality-abstract {
+        height:300px;
+    }
+
+    .personality-bio {
+        margin-bottom:40px;
+    }
 }
 
 

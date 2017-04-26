@@ -3,9 +3,7 @@ using PersonalityService.Data;
 using PersonalityService.Data.Model;
 using PersonalityService.Features.Core;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Linq;
 using System.Data.Entity;
 
 namespace PersonalityService.Features.Personalities
@@ -40,6 +38,16 @@ namespace PersonalityService.Features.Personalities
                 }
 
                 entity.Name = request.Personality.Name;
+
+                entity.Firstname = request.Personality.Firstname;
+
+                entity.Lastname = request.Personality.Lastname;
+
+                entity.Bio = request.Personality.Bio;
+
+                entity.Abstract = request.Personality.Abstract;
+
+                entity.ImageUrl = request.Personality.ImageUrl;
                 
                 await _context.SaveChangesAsync();
 

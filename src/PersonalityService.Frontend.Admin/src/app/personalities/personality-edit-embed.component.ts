@@ -1,6 +1,6 @@
 import { Personality } from "./personality.model";
 import { EditorComponent } from "../shared";
-import {  PersonalityDelete, PersonalityEdit, PersonalityAdd } from "./personality.actions";
+import { PersonalityDelete, PersonalityEdit, PersonalityAdd } from "./personality.actions";
 
 const template = require("./personality-edit-embed.component.html");
 const styles = require("./personality-edit-embed.component.scss");
@@ -27,10 +27,18 @@ export class PersonalityEditEmbedComponent extends HTMLElement {
     }
     
     private async _bind() {
-        this._titleElement.textContent = this.personality ? "Edit Personality": "Create Personality";
+        this.abstractEditor = new EditorComponent(this._abstractElement);
+        this.bioEditor = new EditorComponent(this._bioElement);
+
+        this._titleElement.textContent = this.personality ? `Edit Personality: ${this.personality.name}`: "Create Personality";
 
         if (this.personality) {                
-            this._nameInputElement.value = this.personality.name;  
+            this._nameInputElement.value = this.personality.name != undefined ? this.personality.name : "";
+            this._firstnameElement.value = this.personality.firstname != undefined ? this.personality.firstname : "";
+            this._lastnameElement.value = this.personality.lastname != undefined ? this.personality.lastname : "";
+            this._imageUrlElement.value = this.personality.imageUrl != undefined ? this.personality.imageUrl : "";
+            this.bioEditor.setHTML(this.personality.bio != undefined ? this.personality.bio : "");
+            this.abstractEditor.setHTML(this.personality.abstract != undefined ? this.personality.abstract : "");
         } else {
             this._deleteButtonElement.style.display = "none";
         }     
@@ -51,7 +59,12 @@ export class PersonalityEditEmbedComponent extends HTMLElement {
     public onSave() {
         const personality = {
             id: this.personality != null ? this.personality.id : null,
-            name: this._nameInputElement.value
+            name: this._nameInputElement.value,
+            firstname: this._firstnameElement.value,
+            lastname: this._lastnameElement.value,
+            imageUrl: this._imageUrlElement.value,
+            abstract: this.abstractEditor.text,
+            bio: this.bioEditor.text
         } as Personality;
         
         this.dispatchEvent(new PersonalityAdd(personality));            
@@ -80,7 +93,12 @@ export class PersonalityEditEmbedComponent extends HTMLElement {
                 if (this.parentNode) {
                     this.personalityId = this.personality.id;
                     this._nameInputElement.value = this.personality.name != undefined ? this.personality.name : "";
-                    this._titleElement.textContent = this.personalityId ? "Edit Personality" : "Create Personality";
+                    this._firstnameElement.value = this.personality.firstname != undefined ? this.personality.firstname : "";
+                    this._lastnameElement.value = this.personality.lastname != undefined ? this.personality.lastname : "";
+                    this._imageUrlElement.value = this.personality.imageUrl != undefined ? this.personality.imageUrl : "";
+                    this.bioEditor.setHTML(this.personality.bio != undefined ? this.personality.bio : "");
+                    this.abstractEditor.setHTML(this.personality.abstract != undefined ? this.personality.abstract : "");
+                    this._titleElement.textContent = this.personalityId ? `Edit Personality: ${this.personality.name}` : "Create Personality";
                 }
                 break;
         }           
@@ -88,15 +106,29 @@ export class PersonalityEditEmbedComponent extends HTMLElement {
 
     public personalityId: any;
     
-	public personality: Personality;
+    public personality: Personality;
+
+    public abstractEditor: EditorComponent;
+
+    public bioEditor: EditorComponent;
     
     private get _createButtonElement(): HTMLElement { return this.querySelector(".personality-create") as HTMLElement; }
     
 	private get _titleElement(): HTMLElement { return this.querySelector("h2") as HTMLElement; }
+
+    private get _firstnameElement(): HTMLInputElement { return this.querySelector(".personality-firstname") as HTMLInputElement; }
+
+    private get _lastnameElement(): HTMLInputElement { return this.querySelector(".personality-lastname") as HTMLInputElement; }
+
+    private get _imageUrlElement(): HTMLInputElement { return this.querySelector(".personality-image-url") as HTMLInputElement; }
+
+    private get _abstractElement(): HTMLInputElement { return this.querySelector(".personality-abstract") as HTMLInputElement; }
+
+    private get _bioElement(): HTMLInputElement { return this.querySelector(".personality-bio") as HTMLInputElement; }
     
-	private get _saveButtonElement(): HTMLElement { return this.querySelector(".save-button") as HTMLElement };
+	private get _saveButtonElement(): HTMLInputElement { return this.querySelector(".save-button") as HTMLInputElement };
     
-	private get _deleteButtonElement(): HTMLElement { return this.querySelector(".delete-button") as HTMLElement };
+	private get _deleteButtonElement(): HTMLInputElement { return this.querySelector(".delete-button") as HTMLInputElement };
     
 	private get _nameInputElement(): HTMLInputElement { return this.querySelector(".personality-name") as HTMLInputElement;}
 }
