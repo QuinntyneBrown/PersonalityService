@@ -31,6 +31,12 @@ namespace PersonalityService.Data.Model
 
         public string Bio { get; set; }
 
+        public string Twitter { get; set; }
+
+        public string LinkedIn { get; set; }
+
+        public string Github { get; set; }
+
         public DateTime CreatedOn { get; set; }
         
 		public DateTime LastModifiedOn { get; set; }

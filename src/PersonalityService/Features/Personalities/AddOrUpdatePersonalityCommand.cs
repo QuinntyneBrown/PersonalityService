@@ -48,6 +48,12 @@ namespace PersonalityService.Features.Personalities
                 entity.Abstract = request.Personality.Abstract;
 
                 entity.ImageUrl = request.Personality.ImageUrl;
+
+                entity.Twitter = request.Personality.Twitter;
+
+                entity.LinkedIn = request.Personality.LinkedIn;
+
+                entity.Github = request.Personality.Github;
                 
                 await _context.SaveChangesAsync();
 

@@ -195,6 +195,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="dist\app.js" />
     <Content Include="index.html" />
     <Content Include="lib\moment.min.js" />
     <Content Include="lib\native-shim.js" />
@@ -451,7 +452,9 @@
     <Content Include="src\app\house-guests\house-guest-master-detail.component.html" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Startup.cs" />
@@ -642,14 +645,17 @@
     <TypeScriptCompile Include="src\app\personalities\index.ts" />
     <TypeScriptCompile Include="src\app\personalities\personality.model.ts" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\PersonalityService\PersonalityService.csproj">
       <Project>{a8711bc3-f343-4e44-b045-349942559795}</Project>
       <Name>PersonalityService</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dist\app.js.map" />
+    <None Include="Properties\PublishProfiles\personality-service - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\personality-service - Web Deploy.pubxml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
 </Project>

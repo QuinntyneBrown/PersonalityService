@@ -13,6 +13,12 @@ export class Personality {
     public abstract: string;
 
     public bio: string;
+
+    public github: string;
+
+    public linkedIn: string;
+
+    public twitter: string;
     
     public static fromJSON(data: any): Personality {
 
@@ -29,6 +35,12 @@ export class Personality {
         personality.abstract = data.abstract;
 
         personality.bio = data.bio;
+
+        personality.github = data.github;
+
+        personality.linkedIn = data.linkedIn;
+
+        personality.twitter = data.twitter;
 
         return personality;
     }

@@ -76,10 +76,7 @@ namespace PersonalityService.Features.Users
             if (!User.Identity.IsAuthenticated)
                 return Ok();
             var request = new GetUserByUsernameRequest();
-            request.Username = User.Identity.Name;
-            var user = await _userManager.GetUserAsync(User);
-            request.TenantId = user.TenantId;
-            
+            request.Username = User.Identity.Name;            
             return Ok(await _mediator.Send(request));
         }
 

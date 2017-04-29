@@ -31,7 +31,7 @@ namespace PersonalityService.Features.Users
             {
                 return new GetUserByUsernameResponse()
                 {
-                    User = UserApiModel.FromUser(await _context.Users.SingleAsync(x=>x.Username == request.Username && x.TenantId == request.TenantId))
+                    User = UserApiModel.FromUser(await _context.Users.SingleAsync(x=>x.Username == request.Username))
                 };
             }
 

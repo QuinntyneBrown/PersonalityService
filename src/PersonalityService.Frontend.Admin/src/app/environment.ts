@@ -1,7 +1,7 @@
 ﻿export const environment = {
     production: true,
     applicationContextName: "PersonalityServiceApp",
-    baseUrl: "http://localhost:64411/",
-    identityBaseUrl: "http://localhost:64411/",
+    baseUrl: "http://personality.quinntynebrown.com/",
+    identityBaseUrl: "http://personality.quinntynebrown.com/",
     useUrlRouting: true
 };

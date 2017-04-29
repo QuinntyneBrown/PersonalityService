@@ -20,6 +20,12 @@ namespace PersonalityService.Features.Personalities
 
         public string Bio { get; set; }
 
+        public string Twitter { get; set; }
+
+        public string LinkedIn { get; set; }
+
+        public string Github { get; set; }
+
 
         public static TModel FromPersonality<TModel>(Personality personality) where
             TModel : PersonalityApiModel, new()
@@ -41,6 +47,12 @@ namespace PersonalityService.Features.Personalities
             model.Bio = personality.Bio;
 
             model.ImageUrl = personality.ImageUrl;
+
+            model.Twitter = personality.Twitter;
+
+            model.Github = personality.Github;
+
+            model.LinkedIn = personality.LinkedIn;
 
             return model;
         }

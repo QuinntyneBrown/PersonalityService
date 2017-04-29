@@ -10,6 +10,7 @@ using System.Net.Http.Headers;
 
 using static PersonalityService.Features.DigitalAssets.GetDigitalAssetByUniqueIdQuery;
 using static PersonalityService.Features.DigitalAssets.AzureBlobStorageDigitalAssetCommand;
+using PersonalityService.Features.Core;
 
 namespace PersonalityService.Features.DigitalAssets
 {
@@ -73,9 +74,10 @@ namespace PersonalityService.Features.DigitalAssets
         {
             if (!Request.Content.IsMimeMultipartContent("form-data"))
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
-            var user = await _userManager.GetUserAsync(User);            
+
+            var tenant = Request.GetTenantUniqueId();
             var provider = await Request.Content.ReadAsMultipartAsync(new InMemoryMultipartFormDataStreamProvider());            
-            return Ok(await _mediator.Send(new AzureBlobStorageDigitalAssetRequest() { Provider = provider, Folder = $"{user.Tenant.UniqueId}" }));
+            return Ok(await _mediator.Send(new AzureBlobStorageDigitalAssetRequest() { Provider = provider, Folder = $"{tenant}" }));
         }
 
         protected readonly IMediator _mediator;

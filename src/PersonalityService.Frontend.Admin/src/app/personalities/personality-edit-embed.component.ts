@@ -37,6 +37,9 @@ export class PersonalityEditEmbedComponent extends HTMLElement {
             this._firstnameElement.value = this.personality.firstname != undefined ? this.personality.firstname : "";
             this._lastnameElement.value = this.personality.lastname != undefined ? this.personality.lastname : "";
             this._imageUrlElement.value = this.personality.imageUrl != undefined ? this.personality.imageUrl : "";
+            this._githubElement.value = this.personality.github != undefined ? this.personality.github : "";
+            this._linkedInElement.value = this.personality.linkedIn != undefined ? this.personality.linkedIn : "";
+            this._twitterElement.value = this.personality.twitter != undefined ? this.personality.twitter: "";                
             this.bioEditor.setHTML(this.personality.bio != undefined ? this.personality.bio : "");
             this.abstractEditor.setHTML(this.personality.abstract != undefined ? this.personality.abstract : "");
         } else {
@@ -63,6 +66,9 @@ export class PersonalityEditEmbedComponent extends HTMLElement {
             firstname: this._firstnameElement.value,
             lastname: this._lastnameElement.value,
             imageUrl: this._imageUrlElement.value,
+            github: this._githubElement.value,
+            linkedIn: this._linkedInElement.value,
+            twitter: this._twitterElement.value,
             abstract: this.abstractEditor.text,
             bio: this.bioEditor.text
         } as Personality;
@@ -96,6 +102,9 @@ export class PersonalityEditEmbedComponent extends HTMLElement {
                     this._firstnameElement.value = this.personality.firstname != undefined ? this.personality.firstname : "";
                     this._lastnameElement.value = this.personality.lastname != undefined ? this.personality.lastname : "";
                     this._imageUrlElement.value = this.personality.imageUrl != undefined ? this.personality.imageUrl : "";
+                    this._githubElement.value = this.personality.github != undefined ? this.personality.github : "";
+                    this._linkedInElement.value = this.personality.linkedIn != undefined ? this.personality.linkedIn : "";
+                    this._twitterElement.value = this.personality.twitter != undefined ? this.personality.twitter : "";
                     this.bioEditor.setHTML(this.personality.bio != undefined ? this.personality.bio : "");
                     this.abstractEditor.setHTML(this.personality.abstract != undefined ? this.personality.abstract : "");
                     this._titleElement.textContent = this.personalityId ? `Edit Personality: ${this.personality.name}` : "Create Personality";
@@ -120,6 +129,12 @@ export class PersonalityEditEmbedComponent extends HTMLElement {
 
     private get _lastnameElement(): HTMLInputElement { return this.querySelector(".personality-lastname") as HTMLInputElement; }
 
+    private get _githubElement(): HTMLInputElement { return this.querySelector(".personality-github") as HTMLInputElement; }
+
+    private get _linkedInElement(): HTMLInputElement { return this.querySelector(".personality-linked-in") as HTMLInputElement; }
+
+    private get _twitterElement(): HTMLInputElement { return this.querySelector(".personality-twitter") as HTMLInputElement; }
+    
     private get _imageUrlElement(): HTMLInputElement { return this.querySelector(".personality-image-url") as HTMLInputElement; }
 
     private get _abstractElement(): HTMLInputElement { return this.querySelector(".personality-abstract") as HTMLInputElement; }
