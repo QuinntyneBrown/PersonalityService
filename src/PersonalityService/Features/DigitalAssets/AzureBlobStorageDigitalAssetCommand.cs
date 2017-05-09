@@ -17,8 +17,7 @@ namespace PersonalityService.Features.DigitalAssets
         public class AzureBlobStorageDigitalAssetRequest : IRequest<AzureBlobStorageDigitalAssetResponse>
         {
             public Guid TenantUniqueId { get; set; }
-            public InMemoryMultipartFormDataStreamProvider Provider { get; set; }
-            public string Folder { get; set; } = "azure-blob-storage-upload";
+            public InMemoryMultipartFormDataStreamProvider Provider { get; set; }            
         }
 
         public class AzureBlobStorageDigitalAssetResponse {

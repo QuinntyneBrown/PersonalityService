@@ -1,6 +1,5 @@
 using Microsoft.Owin.Security.Jwt;
 using System;
-using PersonalityService.Security;
 
 namespace PersonalityService.Security
 {

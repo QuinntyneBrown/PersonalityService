@@ -17,6 +17,12 @@ namespace PersonalityService.Migrations
 
             context.Tenants.AddOrUpdate(x => x.Name, new Tenant()
             {
+                Name = "Olivia Mitchel Brown",
+                UniqueId = new Guid("1c3dae2e-bad0-4958-8e7d-160eb0c470c8")
+            });
+
+            context.Tenants.AddOrUpdate(x => x.Name, new Tenant()
+            {
                 Name = "Architecture Notes",
                 UniqueId = new Guid("4204672e-f64a-4edb-8e5c-01c79b7bcb70")
             });

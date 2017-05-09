@@ -30,10 +30,9 @@ export class LinkComponent extends HTMLElement {
 
         switch (name) {
             case "active-path":
-                (this as any).classList.remove("active");
+                this.classList.remove("active");
                 if (this.route == newValue)
-                    (this as any).classList.add("active");
-
+                    this.classList.add("active");
                 break;
             case "routesegments":
                 if (newValue)

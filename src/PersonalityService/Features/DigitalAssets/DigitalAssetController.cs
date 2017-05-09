@@ -75,9 +75,9 @@ namespace PersonalityService.Features.DigitalAssets
             if (!Request.Content.IsMimeMultipartContent("form-data"))
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
 
-            var tenant = Request.GetTenantUniqueId();
+            var tenantUniqueId = Request.GetTenantUniqueId();
             var provider = await Request.Content.ReadAsMultipartAsync(new InMemoryMultipartFormDataStreamProvider());            
-            return Ok(await _mediator.Send(new AzureBlobStorageDigitalAssetRequest() { Provider = provider, Folder = $"{tenant}" }));
+            return Ok(await _mediator.Send(new AzureBlobStorageDigitalAssetRequest() { Provider = provider, TenantUniqueId = tenantUniqueId }));
         }
 
         protected readonly IMediator _mediator;

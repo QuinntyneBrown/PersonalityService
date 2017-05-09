@@ -52,6 +52,7 @@ namespace PersonalityService.Features.Personalities
 
         [Route("getById")]
         [HttpGet]
+        [AllowAnonymous]
         [ResponseType(typeof(GetPersonalityByIdResponse))]
         public async Task<IHttpActionResult> GetById([FromUri]GetPersonalityByIdRequest request)
         {
