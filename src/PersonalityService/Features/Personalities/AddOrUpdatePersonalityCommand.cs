@@ -63,7 +63,5 @@ namespace PersonalityService.Features.Personalities
             private readonly PersonalityServiceContext _context;
             private readonly ICache _cache;
         }
-
     }
-
 }

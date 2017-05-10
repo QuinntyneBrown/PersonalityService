@@ -289,6 +289,30 @@
     <Content Include="src\app\hosts\host-master-detail.component.scss">
       <DependentUpon>host-master-detail.component.ts</DependentUpon>
     </Content>
+    <Content Include="src\app\house-guests\house-guest-edit-embed.component.html">
+      <DependentUpon>house-guest-edit-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\house-guests\house-guest-edit-embed.component.scss">
+      <DependentUpon>house-guest-edit-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\house-guests\house-guest-item-embed.component.html">
+      <DependentUpon>house-guest-item-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\house-guests\house-guest-item-embed.component.scss">
+      <DependentUpon>house-guest-item-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\house-guests\house-guest-list-embed.component.html">
+      <DependentUpon>house-guest-list-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\house-guests\house-guest-list-embed.component.scss">
+      <DependentUpon>house-guest-list-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\house-guests\house-guest-master-detail.component.html">
+      <DependentUpon>house-guest-master-detail.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\house-guests\house-guest-master-detail.component.scss">
+      <DependentUpon>house-guest-master-detail.component.ts</DependentUpon>
+    </Content>
     <Content Include="src\app\personalities\personality-edit-embed.component.html">
       <DependentUpon>personality-edit-embed.component.ts</DependentUpon>
     </Content>
@@ -442,14 +466,6 @@
     <Content Include="src\app\personality-questions\personality-question-item-embed.component.html" />
     <Content Include="src\app\personality-questions\personality-question-master-detail.component.scss" />
     <Content Include="src\app\personality-questions\personality-question-master-detail.component.html" />
-    <Content Include="src\app\house-guests\house-guest-edit-embed.component.scss" />
-    <Content Include="src\app\house-guests\house-guest-edit-embed.component.html" />
-    <Content Include="src\app\house-guests\house-guest-list-embed.component.scss" />
-    <Content Include="src\app\house-guests\house-guest-list-embed.component.html" />
-    <Content Include="src\app\house-guests\house-guest-item-embed.component.scss" />
-    <Content Include="src\app\house-guests\house-guest-item-embed.component.html" />
-    <Content Include="src\app\house-guests\house-guest-master-detail.component.scss" />
-    <Content Include="src\app\house-guests\house-guest-master-detail.component.html" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config">
